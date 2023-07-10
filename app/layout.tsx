@@ -16,9 +16,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Navbar />
-        <div className="flex">
+        <div className="flex p-6 gap-6">
           <Sidebar />
-          <main>{children}</main>
+          <main className=" flex-1">{children}</main>
         </div>
         <Footer />
       </body>
