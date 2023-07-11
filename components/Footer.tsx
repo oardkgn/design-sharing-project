@@ -71,7 +71,7 @@ const Footer = () => (
     </div>
 
     <div className="footer_copyright mt-8">
-      <p>@ 2023 Flexibble. All rights reserved</p>
+      <p>@ 2023 Graphix. All rights reserved</p>
       <p className="text-gray">
         <span className="text-black font-semibold">10,214</span> projects
         submitted

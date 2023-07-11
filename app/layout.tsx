@@ -16,7 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Navbar />
-        <div className="flex p-6 gap-6">
+        <div className="flex flex-col md:flex-row p-6 gap-6">
           <Sidebar />
           <main className=" flex-1">{children}</main>
         </div>

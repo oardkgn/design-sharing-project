@@ -11,9 +11,14 @@ body {
   font-family: 'Josefin Slab', serif;
 }
 
+.categoryBtn{
+  @apply whitespace-nowrap py-2 hover:bg-[#7895CB] hover:text-[#e0f0ff] transition-all text-left px-3 rounded
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
+  height: 3px;
 }
 
 /* Track */

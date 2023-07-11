@@ -2,26 +2,49 @@ import React from "react";
 
 function Sidebar() {
   return (
-    <div className=" w-full max-w-[300px]">
-      <nav className=" bg-[#e0f0ff] rounded h-[calc(100vh-110px)] py-4 overflow-y-scroll">
-        <ul className="flex flex-col text-lg text-[#4A55A2] gap-1 px-3">
-        <button className=" py-2 hover:bg-[#7895cb] hover:text-[#e0f0ff] transition-all text-left px-3 rounded">Frontend</button>
-        <button className=" py-2 hover:bg-[#7895CB] hover:text-[#e0f0ff] transition-all text-left px-3 rounded">Backend</button>
-        <button className=" py-2 hover:bg-[#7895CB] hover:text-[#e0f0ff] transition-all text-left px-3 rounded">Full-Stack</button>
-        <button className=" py-2 hover:bg-[#7895CB] hover:text-[#e0f0ff] transition-all text-left px-3 rounded">Mobile</button>
-        <button className=" py-2 hover:bg-[#7895CB] hover:text-[#e0f0ff] transition-all text-left px-3 rounded">UI/UX</button>
-        <button className=" py-2 hover:bg-[#7895CB] hover:text-[#e0f0ff] transition-all text-left px-3 rounded">Game Dev</button>
-        <button className=" py-2 hover:bg-[#7895CB] hover:text-[#e0f0ff] transition-all text-left px-3 rounded">Level Design</button>
-        <button className=" py-2 hover:bg-[#7895CB] hover:text-[#e0f0ff] transition-all text-left px-3 rounded">Environment</button>
-        <button className=" py-2 hover:bg-[#7895CB] hover:text-[#e0f0ff] transition-all text-left px-3 rounded">DevOps</button>
-        <button className=" py-2 hover:bg-[#7895CB] hover:text-[#e0f0ff] transition-all text-left px-3 rounded">Data Science</button>
-        <button className=" py-2 hover:bg-[#7895CB] hover:text-[#e0f0ff] transition-all text-left px-3 rounded">Machine Learning</button>
-        <button className=" py-2 hover:bg-[#7895CB] hover:text-[#e0f0ff] transition-all text-left px-3 rounded">Cybersecurity</button>
-        <button className=" py-2 hover:bg-[#7895CB] hover:text-[#e0f0ff] transition-all text-left px-3 rounded">Blockchain</button>
-        <button className=" py-2 hover:bg-[#7895CB] hover:text-[#e0f0ff] transition-all text-left px-3 rounded">E-Commerce</button>
-        <button className=" py-2 hover:bg-[#7895CB] hover:text-[#e0f0ff] transition-all text-left px-3 rounded">Chatbots</button>
-        </ul>
-      </nav>
+    <div className="">
+      <div className=" w-full min-w-full hidden md:block max-w-[28%] lg:max-w-[20%]">
+        <nav className="  bg-[#e0f0ff] rounded h-[calc(100vh-110px)] py-4 overflow-y-scroll">
+          <ul className="flex flex-col text-sm lg:text-lg text-[#4A55A2] gap-1 px-3">
+            <button className="categoryBtn">Frontend</button>
+            <button className="categoryBtn">Backend</button>
+            <button className="categoryBtn">Full-Stack</button>
+            <button className="categoryBtn">Mobile</button>
+            <button className="categoryBtn">UI/UX</button>
+            <button className="categoryBtn">Game Dev</button>
+            <button className="categoryBtn">Level Design</button>
+            <button className="categoryBtn">Environment</button>
+            <button className="categoryBtn">DevOps</button>
+            <button className="categoryBtn">Data Science</button>
+            <button className="categoryBtn">Machine Learning</button>
+            <button className="categoryBtn">Cybersecurity</button>
+            <button className="categoryBtn">Blockchain</button>
+            <button className="categoryBtn">E-Commerce</button>
+            <button className="categoryBtn">Chatbots</button>
+          </ul>
+        </nav>
+      </div>
+      <div className=" md:hidden">
+        <nav className="  pt-4  pb-3  bg-[#e0f0ff] rounded overflow-x-scroll">
+          <ul className="flex text-sm min-w-fit  lg:text-lg text-[#4A55A2] gap-1 px-3">
+            <button className="categoryBtn">Frontend</button>
+            <button className="categoryBtn">Backend</button>
+            <button className="categoryBtn">Full-Stack</button>
+            <button className="categoryBtn">Mobile</button>
+            <button className="categoryBtn">UI/UX</button>
+            <button className="categoryBtn">Game Dev</button>
+            <button className="categoryBtn">Level Design</button>
+            <button className="categoryBtn">Environment</button>
+            <button className="categoryBtn">DevOps</button>
+            <button className="categoryBtn">Data Science</button>
+            <button className="categoryBtn">Machine Learning</button>
+            <button className="categoryBtn">Cybersecurity</button>
+            <button className="categoryBtn">Blockchain</button>
+            <button className="categoryBtn">E-Commerce</button>
+            <button className="categoryBtn">Chatbots</button>
+          </ul>
+        </nav>
+      </div>
     </div>
   );
 }
