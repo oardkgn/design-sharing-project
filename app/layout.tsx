@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body suppressHydrationWarning={true} >
         <Navbar />
         <div className="flex flex-col md:flex-row p-6 gap-6">
           <Sidebar />
