@@ -7,6 +7,7 @@ import { JWT } from "next-auth/jwt";
 
 import { createUser, getUser } from "./actions";
 import { SessionInterface, UserProfile } from "@/common.types";
+import { log } from "console";
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -79,6 +80,5 @@ export const authOptions: NextAuthOptions = {
 
 export async function getCurrentUser() {
   const session = await getServerSession(authOptions) as SessionInterface;
-
   return session;
 }
