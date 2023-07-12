@@ -20,25 +20,14 @@ const User = g.model("User", {
 const Project = g.model("Project", {
   title: g.string().length({ min: 3 }),
   description: g.string(),
-  img: g.url(),
+  image: g.url(),
   liveSiteUrl: g.url(),
   githubUrl: g.url(),
   category: g.string().search(),
   createdBy: g.relation(() => User),
-  comments: g
-    .relation(() => Comment)
-    .list()
-    .optional(),
-  likes: g.int(),
 }).auth((rules) => {
   rules.public().read(),
   rules.private().create().delete().update();
-});
-
-const Comment = g.model("Comment", {
-  comment: g.string().length({ min: 3, max: 100 }),
-  sendedBy: g.relation(() => User),
-  sendTime: g.date(),
 });
 
 const jwt = auth.JWT({
@@ -53,3 +42,8 @@ export default config({
     rules: (rules) => rules.private(),
   }
 });
+
+// https://github/ardakgn/cvmaker
+// https://cvmaker.com
+// Land your perfect job with a killer CV
+// CV Maker

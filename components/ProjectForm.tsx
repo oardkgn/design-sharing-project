@@ -1,12 +1,14 @@
 "use client";
 
-import { useState, ChangeEvent, useEffect } from "react";
+import { useState, ChangeEvent, useEffect, FormEvent } from "react";
 import { FormState, SessionInterface, ProjectInterface } from "@/common.types";
 import CategoriesMenu from "./CategoriesMenu";
 import Button from "./Button";
 import FormField from "./FormField";
 import Image from "next/image";
 import { categoryFilters } from "@/constant";
+import { fetchToken,createNewProject } from "@/lib/actions";
+import { useRouter } from "next/navigation";
 
 type Props = {
   type: string;
@@ -24,6 +26,8 @@ function ProjectForm({ type, session, project }: Props) {
     githubUrl: project?.githubUrl || "",
     category: project?.category || "",
   });
+
+  const router = useRouter();
 
   const handleStateChange = (fieldName: keyof FormState, value: string) => {
     setForm((prevForm) => ({ ...prevForm, [fieldName]: value }));
@@ -47,8 +51,24 @@ function ProjectForm({ type, session, project }: Props) {
     };
   };
 
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+
+    setSubmitting(true);
+
+    const { token } = await fetchToken();
+
+    try {
+      await createNewProject(form, session?.user?.id, token);
+      router.push("/");
+    } catch (error) {
+      console.log(error);
+      
+    }
+  };
+
   return (
-    <form className=" w-full" action="">
+    <form className=" w-full" onSubmit={handleSubmit}>
       <div className=" flex flex-col mb-8 w-full relative">
         <label
           htmlFor="image"
@@ -118,7 +138,7 @@ function ProjectForm({ type, session, project }: Props) {
         />
       </div>
       <div className=" flex justify-end pt-28">
-        <Button type="submit" title="Create" />
+        <Button submitting={submitting} type="submit" title="Create" leftIcon="/plus.svg" />
       </div>
     </form>
   );
