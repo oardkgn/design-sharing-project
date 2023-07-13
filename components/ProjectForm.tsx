@@ -7,7 +7,7 @@ import Button from "./Button";
 import FormField from "./FormField";
 import Image from "next/image";
 import { categoryFilters } from "@/constant";
-import { fetchToken,createNewProject } from "@/lib/actions";
+import { fetchToken, createNewProject, updateProject } from "@/lib/actions";
 import { useRouter } from "next/navigation";
 
 type Props = {
@@ -59,11 +59,18 @@ function ProjectForm({ type, session, project }: Props) {
     const { token } = await fetchToken();
 
     try {
-      await createNewProject(form, session?.user?.id, token);
-      router.push("/");
+      if (type === "create") {
+        await createNewProject(form, session?.user?.id, token);
+        router.push("/");
+      };
+      
+      
+      if (type === "edit") {
+        await updateProject(form, project?.id as string, token);
+        router.push("/");
+      };
     } catch (error) {
       console.log(error);
-      
     }
   };
 
@@ -138,7 +145,12 @@ function ProjectForm({ type, session, project }: Props) {
         />
       </div>
       <div className=" flex justify-end pt-28">
-        <Button submitting={submitting} type="submit" title="Create" leftIcon="/plus.svg" />
+        <Button
+          submitting={submitting}
+          type="submit"
+          title={type}
+          leftIcon={type == "create" ? "/plus.svg" : null}
+        />
       </div>
     </form>
   );

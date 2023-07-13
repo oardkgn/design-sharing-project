@@ -8,7 +8,6 @@ type Props = {
   id: string;
   image: string;
   title: string;
-  liveSiteUrl: string;
   name: string;
   avatarUrl: string;
   userId: string;
@@ -19,7 +18,6 @@ function ProjectCard({
   image,
   title,
   name,
-  liveSiteUrl,
   avatarUrl,
   userId,
 }: Props) {

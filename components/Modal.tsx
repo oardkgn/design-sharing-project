@@ -11,6 +11,7 @@ import React, {
 import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
 
+
 function Modal({ children }: { children: ReactNode }) {
   const overlay = useRef<HTMLDivElement>(null);
   const wrapper = useRef<HTMLDivElement>(null);
@@ -28,7 +29,15 @@ function Modal({ children }: { children: ReactNode }) {
   const onDismiss = () => {
     setIsModalActive(!isModalActive);
     setTimeout(() => {
-      router.push("/")
+      console.log(path);
+      
+      if (!path.includes("project")) {
+        console.log(1);
+        
+        router.push("/")
+      }else{
+        router.back()
+      }
     }, 500);
   };
 

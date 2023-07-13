@@ -1,7 +1,7 @@
 import React from "react";
 import { fetchAllProjects } from "@/lib/actions";
 import { ProjectInterface } from "@/common.types";
-import { ProjectCard } from "@/components";
+import { Pagination, ProjectCard } from "@/components";
 
 type SearchParams = {
   category?: string | null;
@@ -24,6 +24,10 @@ type ProjectSearch = {
   };
 };
 
+export const dynamic = 'force-dynamic';
+export const dynamicParams = true;
+export const revalidate = 0;
+
 async function Home({ searchParams: { category, endcursor } }: Props) {
   const data = (await fetchAllProjects(category, endcursor)) as ProjectSearch;
   const projectsToDisplay = data?.projectSearch?.edges || [];
@@ -37,7 +41,9 @@ async function Home({ searchParams: { category, endcursor } }: Props) {
   }
 
   return (
-    <section className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
+    <div className="min-h-[580px] flex flex-col justify-start">
+      {category ? <h4 className=" font-semibold text-lg py-1">Search for {category}</h4> : <h4 className=" font-semibold text-lg py-1">All Projects</h4> }
+      <section className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 max-w-7xl ">
       {projectsToDisplay.map(({ node }: { node: ProjectInterface }) => {
         console.log(node);
 
@@ -55,6 +61,13 @@ async function Home({ searchParams: { category, endcursor } }: Props) {
         );
       })}
     </section>
+    <Pagination 
+        startCursor={data?.projectSearch?.pageInfo?.startCursor} 
+        endCursor={data?.projectSearch?.pageInfo?.endCursor} 
+        hasPreviousPage={data?.projectSearch?.pageInfo?.hasPreviousPage} 
+        hasNextPage={data?.projectSearch?.pageInfo.hasNextPage}
+      />
+    </div>
   );
 }
 
