@@ -19,7 +19,7 @@ function Modal({ children }: { children: ReactNode }) {
   const [isModalActive, setIsModalActive] = useState(false);
   const path = usePathname();
   useEffect(() => {
-    if (path.includes('create-project')) {
+    if (path.includes('create-project') || path.includes('project')) {
       setIsModalActive(true)
     }
   }, [])
