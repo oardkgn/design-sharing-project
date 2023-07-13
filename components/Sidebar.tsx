@@ -17,7 +17,7 @@ function Sidebar() {
   };
 
   return (
-    <div className=" max-h-[620px] rounded-b-md overflow-hidden">
+    <div className=" max-h-[650px] rounded-b-md pb-4 overflow-hidden">
       <div className=" w-full min-w-full hidden md:block max-w-[28%] lg:max-w-[20%]">
         <nav className="  bg-[#e0f0ff] rounded h-[calc(100vh-110px)] py-4 overflow-y-scroll">
           <ul className="flex flex-col text-sm lg:text-lg text-[#4A55A2] gap-1 px-3">
